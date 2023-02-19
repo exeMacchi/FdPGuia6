@@ -1,19 +1,22 @@
-// 4. Una compaÃ±Ã­a de turismo aventura registrÃ³ los paquetes vendidos durante la Ãºltima temporada vacacional. 
-//    Para cada venta se ingresÃ³:
-//       â€¢ NÃºmero de paquete(4 dÃ­gitos no correlativos).
-//       â€¢ Cantidad de personas incluidas.
-//       â€¢ Precio por persona.
-//       â€¢ Horas totales de actividades.
-//       â€¢ Tipo de aventura(â€œMâ€ = MontaÃ±a; â€œTâ€ = Trekking; â€œRâ€ = Rafting; â€œBâ€ = Bicicleta; â€œCâ€ = Canopy; 
-//                          â€œEâ€ = Escalar; â€œKâ€ = Sky; â€œSâ€ = Snowboard; â€œJâ€ = Jumping; â€œPâ€ = Parapente).
-//    El lote se encuentra no ordenado y agrupado por tipo de aventura y corta con nÃºmero de paquete cero.
-//    En el lote no se ingresan registros cuyo tipo de aventura no se haya vendido.
-//    A partir de dichos datos, se solicita informar:
-//       a. La cantidad de paquetes vendidos de cada tipo de aventura.
-//       b. La cantidad total de personas que disfrutaron de las aventuras durante la temporada.
-//       c. El total recaudado por cada venta.
-//       d. La venta con mayor importe de cada tipo de aventura.
-//       e. El paquete con menos horas incurridlas y en quÃ© tipo de actividad fue.
+/*
+   4. Una compañía de turismo aventura registró los paquetes vendidos durante la última temporada vacacional.
+      Para cada venta se ingresó:
+         • Número de paquete(4 dígitos no correlativos).
+         • Cantidad de personas incluidas.
+         • Precio por persona.
+         • Horas totales de actividades.
+         • Tipo de aventura(“M” = Montaña; “T” = Trekking; “R” = Rafting; “B” = Bicicleta; “C” = Canopy;
+                            “E” = Escalar; “K” = Sky; “S” = Snowboard; “J” = Jumping; “P” = Parapente).
+      El lote se encuentra no ordenado y agrupado por tipo de aventura y corta con número de paquete cero.
+      En el lote no se ingresan registros cuyo tipo de aventura no se haya vendido.
+      A partir de dichos datos, se solicita informar:
+         a. La cantidad de paquetes vendidos de cada tipo de aventura.
+         b. La cantidad total de personas que disfrutaron de las aventuras durante la temporada.
+         c. El total recaudado por cada venta.
+         d. La venta con mayor importe de cada tipo de aventura.
+         e. El paquete con menos horas incurridlas y en qué tipo de actividad fue.
+*/
+
 
 #include <iostream>
 
@@ -35,23 +38,28 @@ int main()
     cout << "Precio por persona: $"; cin >> precioPorPersona;
     cout << "Horas totales de actividad: "; cin >> hsTotales;
 
-    while (numPaquete != 0) {
+    while (numPaquete != 0)
+    {
         TAAct = TAventura;
         P = 0;
         ventaMayorImporte = 0;
 
-        while (TAventura == TAAct && numPaquete != 0) {
+        while (TAventura == TAAct && numPaquete != 0)
+        {
             P++;
             cantPerTotal += canPersonas;
             totalRecaudado = canPersonas * precioPorPersona;
-            if (totalRecaudado > ventaMayorImporte) {
+            if (totalRecaudado > ventaMayorImporte)
+            {
                 ventaMayorImporte = totalRecaudado;
             }
-            if (P == 1) {
+            if (P == 1)
+            {
                 PMHs = P;
                 minHs = hsTotales;
             }
-            else if (hsTotales < minHs) {
+            else if (hsTotales < minHs)
+            {
                 PMHs = P;
                 minHs = hsTotales;
             }
@@ -59,21 +67,25 @@ int main()
             cout << "-------------------------------- Ingresos totales de la venta: $" << totalRecaudado;
 
             cout << "\nTipo de aventura: "; cin >> TAventura;
-            if (TAventura == TAAct) {
+            if (TAventura == TAAct)
+            {
                 cout << "Numero de paquete: "; cin >> numPaquete;
-                if (numPaquete != 0) {
+                if (numPaquete != 0)
+                {
                     cout << "Cantidad de personas incluidas: "; cin >> canPersonas;
                     cout << "Precio por persona: $"; cin >> precioPorPersona;
                     cout << "Horas totales de actividad: "; cin >> hsTotales;
                 }
             }
         }
-        if (!Aventura) {
+        if (!Aventura)
+        {
             aventuraPaqueteMenosHoras = TAAct;
             paqueteMenosHoras = PMHs;
             aventuraMenosHoras = minHs;
         }
-        else if (minHs < aventuraMenosHoras) {
+        else if (minHs < aventuraMenosHoras)
+        {
             aventuraPaqueteMenosHoras = TAAct;
             paqueteMenosHoras = PMHs;
             aventuraMenosHoras = minHs;
@@ -86,7 +98,8 @@ int main()
 
         cout << "\nTipo de aventura: "; cin >> TAventura;
         cout << "Numero de paquete: "; cin >> numPaquete;
-        if (numPaquete != 0) {
+        if (numPaquete != 0)
+        {
             cout << "Cantidad de personas incluidas: "; cin >> canPersonas;
             cout << "Precio por persona: $"; cin >> precioPorPersona;
             cout << "Horas totales de actividad: "; cin >> hsTotales;
@@ -96,8 +109,8 @@ int main()
     cout << "\n------------------------------------------------------------------";
     cout << "\n------------------------------------------------------------------";
     cout << "\nCantidad total de personas de la temporada: " << cantPerTotal;
-    cout << "\nEl paquete numero " << paqueteMenosHoras << " de la aventura tipo " << aventuraPaqueteMenosHoras 
-         << " fue el paquete con menos horas.";
+    cout << "\nEl paquete numero " << paqueteMenosHoras << " de la aventura tipo " << aventuraPaqueteMenosHoras
+        << " fue el paquete con menos horas.";
     cout << "\n------------------------------------------------------------------";
     cout << "\n------------------------------------------------------------------" << endl;
     return 0;

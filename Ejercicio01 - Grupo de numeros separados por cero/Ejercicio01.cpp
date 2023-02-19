@@ -1,10 +1,10 @@
-// 1. Se dispone de una lista de 10 grupos de nÃºmeros enteros separados entre ellos por ceros. 
+// 1. Se dispone de una lista de 10 grupos de números enteros separados entre ellos por ceros. 
 //    Se pide determinar e informar:
-//       a. El nÃºmero de grupo con mayor porcentaje de nÃºmeros impares positivos respecto al total de nÃºmeros 
+//       a. El número de grupo con mayor porcentaje de números impares positivos respecto al total de números 
 //          que forman el grupo.
-//       b. Para cada grupo, el Ãºltimo nÃºmero primo y en quÃ© orden apareciÃ³ en ese grupo.
-//          Si en un grupo no hubiera nÃºmeros primos, informarlo con un cartel aclaratorio.
-//       c. Informar cuÃ¡ntos grupos estÃ¡n formados por todos nÃºmeros ordenados de mayor a menor.
+//       b. Para cada grupo, el último número primo y en qué orden apareció en ese grupo.
+//          Si en un grupo no hubiera números primos, informarlo con un cartel aclaratorio.
+//       c. Informar cuántos grupos están formados por todos números ordenados de mayor a menor.
 
 #include <iostream>
 
@@ -23,7 +23,8 @@ int main()
     cout << "\n1. Ingrese el primer numero del grupo: ";
     cin >> N;
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 3; i++)
+    {
         int G = i + 1;
         int conNum = 0, conImp = 0;
         int CNT = 0, PImpP = 0;
@@ -32,57 +33,73 @@ int main()
         bool GNO = false;
         bool Par = false, Primo = false;
 
-        if (N != 0) {
+        if (N != 0)
+        {
             banNum = true;
         }
 
-        while (N != 0) {
+        while (N != 0)
+        {
             Pos++;
             int conPri = 0;
-            if (N > 0) {
-                if (N % 2 == 0) {
+            if (N > 0)
+            {
+                if (N % 2 == 0)
+                {
                     Par = true;
                 }
-                else {
+                else
+                {
                     Par = false;
                 }
 
-                if (!Par) {
+                if (!Par)
+                {
                     conImp++;
                 }
-                else {
+                else
+                {
                     conNum++;
                 }
             }
-            else {
+            else
+            {
                 conNum++;
             }
 
-            
-            for (int i = 1; i <= N; i++) {
-                if (N % i == 0) {
+
+            for (int i = 1; i <= N; i++)
+            {
+                if (N % i == 0)
+                {
                     conPri++;
                 }
             }
-            if (conPri == 2) {
+            if (conPri == 2)
+            {
                 Primo = true;
             }
-            else {
+            else
+            {
                 Primo = false;
             }
 
-            if (Primo) {
+            if (Primo)
+            {
                 UNPri = N;
                 posPri = Pos;
             }
 
-            if (Pos == 1) {
+            if (Pos == 1)
+            {
                 MaxN = N;
             }
-            else if (N < MaxN) {
+            else if (N < MaxN)
+            {
                 MaxN = N;
             }
-            else {
+            else
+            {
                 GNO = true;
             }
 
@@ -91,50 +108,62 @@ int main()
 
         }
 
-        if (banNum) {
+        if (banNum)
+        {
             banBanNum = true;
             CNT = conImp + conNum;
             PImpP = conImp * 100 / CNT;
-            if (PImpP > PorcenImp) {
+            if (PImpP > PorcenImp)
+            {
                 PorcenImp = PImpP;
                 GMPImp = G;
             }
-            if (UNPri != 0) {
+            if (UNPri != 0)
+            {
                 cout << "\nEl ultimo numero primo es " << UNPri << " y su posicion es " << posPri << "." << endl;
             }
-            else {
+            else
+            {
                 cout << "\nEn este grupo, no se escribio ningun numero primo." << endl;
             }
-            if (!GNO) {
+            if (!GNO)
+            {
                 GOMAM++;
             }
         }
 
         banNum = false;
 
-        if (i != 2) {
+        if (i != 2)
+        {
             cout << "\n--------------------------- Grupo " << G + 1 << " ---------------------------";
             cout << "\n1. Ingrese el primer numero del grupo: ";
             cin >> N;
         }
     }
 
-    if (banBanNum) {
+    if (banBanNum)
+    {
         cout << "\n---------------------------------------------------------------";
-        if (GMPImp != 0) {
+        if (GMPImp != 0)
+        {
             cout << "\nEl grupo con mayor porcentaje de numeros impares positivos: grupo " << GMPImp << endl;
         }
-        else {
-            cout << "\nNo se escribieron nÃºmeros impares positivos en ningÃºn grupo." << endl;
+        else
+        {
+            cout << "\nNo se escribieron números impares positivos en ningún grupo." << endl;
         }
-        if (GOMAM != 0) {
+        if (GOMAM != 0)
+        {
             cout << "Cantidad de grupos ordenados de mayor a menor: " << GOMAM << endl;
         }
-        else {
+        else
+        {
             cout << "Ningun grupo esta ordenado de mayor a menor." << endl;
         }
     }
-    else {
+    else
+    {
         cout << "\n---------------------------------------------------------------";
         cout << "\nError: ningun numero fue registrado en ningun grupo." << endl;
     }

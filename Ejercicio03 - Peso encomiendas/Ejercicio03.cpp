@@ -1,15 +1,18 @@
-// 3. Hacer un programa para ingresar los valores de los pesos de distintas encomiendas que se deben enviar 
-//    a distintos clientes y que finaliza cuando se ingresa un peso negativo. Se deben agrupar las encomiendas 
-//    en camiones que pueden transportar hasta 200 kilos en total.
-//    Por ejemplo:
-//    10, 20, 140,    70, 100,    40, 10, 50, 80,    90, 30, 40,    50, -10.
-//      Cami贸n 1.     Cami贸n 2        Cami贸n 3         Cami贸n 4     Cami贸n 5
-// 
-//    Se pide determinar e informar :
-//       a. El n煤mero de cami贸n y peso total de encomiendas (Cami贸n 1: 170kg, Cami贸n 2: 170kg, etc.).
-//       b. El n煤mero de cami贸n que transporta mayor cantidad de encomiendas (en el ejemplo anterior ser铆a 
-//          el cami贸n 3 con 4 encomiendas).
-//       c. La cantidad de camiones que se terminaron cargando.
+/*
+   3. Hacer un programa para ingresar los valores de los pesos de distintas encomiendas que se deben enviar
+      a distintos clientes y que finaliza cuando se ingresa un peso negativo. Se deben agrupar las encomiendas
+      en camiones que pueden transportar hasta 200 kilos en total.
+      Por ejemplo:
+      10, 20, 140,    70, 100,    40, 10, 50, 80,    90, 30, 40,    50, -10.
+        Cami髇 1.     Cami髇 2        Cami髇 3         Cami髇 4     Cami髇 5
+
+      Se pide determinar e informar :
+         a. El n鷐ero de cami髇 y peso total de encomiendas (Cami髇 1: 170kg, Cami髇 2: 170kg, etc.).
+         b. El n鷐ero de cami髇 que transporta mayor cantidad de encomiendas (en el ejemplo anterior ser韆
+            el cami髇 3 con 4 encomiendas).
+         c. La cantidad de camiones que se terminaron cargando.
+*/
+
 
 #include <iostream>
 
